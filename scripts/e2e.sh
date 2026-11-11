@@ -51,7 +51,7 @@ for src in "01 Lower" "02 Upper" "03 Mixed"; do
 done
 check "plain.flac at the input root converts" test -f "$out/plain.m4a"
 
-for f in "cover.jpg" "album.cue" notes.txt; do
+for f in "My FLAC Rip/album/cover.jpg" "My FLAC Rip/album/album.cue" notes.txt; do
 	check "non-FLAC $f copied byte for byte" cmp -s "$in/$f" "$out/$f"
 done
 check "copied album.cue keeps mode 640" test "$(stat -f %Lp "$out/My FLAC Rip/album/album.cue")" = 640
