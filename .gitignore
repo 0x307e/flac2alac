@@ -1,3 +1,6 @@
 .DS_Store
 flac2alac
 *.exe
+
+# Go caches used when the shared module cache is not writable
+.deps/
