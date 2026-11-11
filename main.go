@@ -202,20 +202,20 @@ func main() {
 		os.Exit(1)
 	}
 
-	items, err := walk(in)
-	if err != nil && items == nil {
-		fmt.Fprintf(os.Stderr, "walk %s: %v\n", in, err)
+	items, walkErr := walk(in)
+	if walkErr != nil && items == nil {
+		fmt.Fprintf(os.Stderr, "walk %s: %v\n", in, walkErr)
 		os.Exit(1)
 	}
 
 	failed, runErr := run(in, out, items)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "walk %s: %v\n", in, err)
+	if walkErr != nil {
+		fmt.Fprintf(os.Stderr, "walk %s: %v\n", in, walkErr)
 	}
 	if runErr != nil {
 		fmt.Fprintln(os.Stderr, runErr)
 	}
-	if err != nil || runErr != nil {
+	if walkErr != nil || runErr != nil {
 		if failed == 0 {
 			failed = 1
 		}
