@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# Builds flac2alac and checks it against a real directory tree of real FLAC and
-# non-FLAC files. Needs ffmpeg and ffprobe on PATH. Safe to rerun.
 set -u
 
 repo=$(cd "$(dirname "$0")/.." && pwd)
